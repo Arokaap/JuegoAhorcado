@@ -15,15 +15,11 @@ class Juego(jugadores: Jugador) {
         this.jugador = jugadores
     }
 
-    fun getIntentos(): Byte {
-        return this.intentos
-    }
-
     fun iniciarJuego() {
         var victoria: Boolean
         var error: Boolean
-        var frase = generarFrase()
-        var guiones = StringBuilder("")
+        val frase = generarFrase()
+        val guiones = StringBuilder("")
 
         for (letra in frase) {
             guiones.append("_")
@@ -32,7 +28,7 @@ class Juego(jugadores: Jugador) {
         do {
             Utilidades.textoInformativo("Te quedan ${this.intentos} vidas")
             println(guiones)
-            var opcionElegida = Utilidades.pedirString("Introduzca una letra: ")
+            val opcionElegida = Utilidades.pedirString("Introduzca una letra: ")
             var letraAcertada = false
             victoria = true
             error = false
@@ -65,15 +61,15 @@ class Juego(jugadores: Jugador) {
                     Utilidades.textoError("Fallaste :(")
                 }
             } else if (!error) {
-                if (victoria == true) {
+                if (victoria) {
                     Utilidades.textoVerde("VICTORIA!")
-                    Utilidades.textoVerde("La palabra era: ${frase}")
+                    Utilidades.textoVerde("La palabra era: $frase")
                 } else {
                     Utilidades.textoVerde("PALABRA CORRECTA")
                 }
             }
 
-        } while (this.intentos > 0 && victoria == false)
+        } while (this.intentos > 0 && !victoria)
 
 
     }

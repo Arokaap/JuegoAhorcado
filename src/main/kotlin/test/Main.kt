@@ -3,12 +3,12 @@ import modelo.Jugador
 import recursos.Utilidades
 
 fun main() {
-    var repetir: Boolean = true
+    var repetir = true
 
     do {
         when (Juego.menuInicial()) {
             1.toByte() -> {
-                var partida = Juego(Jugador("001", "Aroka", "Aarón"))
+                val partida = Juego(Jugador("001", "Aroka", "Aarón"))
 
                 Utilidades.limpiarPantalla()
                 partida.iniciarJuego()

@@ -4,7 +4,6 @@ import java.lang.Exception
 
 class Utilidades {
     companion object {
-
         fun pedirString(texto: String): String {
             println(texto)
             return readLine().toString()
